@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: devopszon-httpapi-host-ingress
+  namespace: devopszon
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: api.devopszon.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: devopszon-httpapi-host
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - api.devopszon.com
+    secretName: devopszon-httpapi-host-ingress-secret

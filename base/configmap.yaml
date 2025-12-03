@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  deneme: test
+  a1: "200"
+  ServiceConnections__Github__RedirectUri: https://api.devopszon.com/api/app/github/auth/callback
+  ASPNETCORE_ENVIRONMENT: Production
+  App__SelfUrl: https://api.devopszon.com
+  ASPNETCORE_URLS: http://+:8080
+  App__HealthCheckUrl: http://localhost:8080/health-status
+  App__CorsOrigins: https://*.devopszon.com,https://devopszon.com,https://console.devopszon.com,http://localhost:4200
+  AuthServer__Authority: https://auth.devopszon.com/
+  AuthServer__MetaAddress: https://auth.devopszon.com/
+  AuthServer__RequireHttpsMetadata: "true"
+  DevOpsZonAgent__BaseLocalUrl: http://devopszon-agent-deployment.devopszon.svc
+  DevOpsZonAgent__BaseGlobalUrl: http://devopszon-agent-deployment.devopszon.svc
+  Tekton__BuildPushPipelineUrl: http://el-listener.devopszon-pipelines.svc:8080
+  Logging__LogLevel__Microsoft.AspNetCore.Routing.EndpointMiddleware: None
+  Logging__LogLevel__Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware: None
+  Logging__LogLevel__System.Net.Http.HttpClient: None
+  Logging__LogLevel__System.Net.Http.HttpClient.health-checks: None
+  Loki__EnableCache: "false"
+  DevOpsZonAgent__TimeoutSeconds: "300"
+  Monitoring__ApiEndpoint: https://api.devopszon.com/api/monitoring/events
+  Logging__LogLevel__Microsoft.AspNetCore.Hosting.Diagnostics: None
+kind: ConfigMap
+metadata:
+  labels:
+    app: devopszon-httpapi-host
+    managed-by: devopszon
+  name: devopszon-httpapi-host-config
+  namespace: devopszon
