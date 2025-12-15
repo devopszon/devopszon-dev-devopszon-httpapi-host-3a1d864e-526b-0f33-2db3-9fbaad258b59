@@ -41,7 +41,7 @@ spec:
       
       containers:
         - name: devopszon-httpapi-host
-          image: docker.io/cahityusuf/devopszon-abp-api:v1.2.96
+          image: docker.io/cahityusuf/devopszon-abp-api:v1.2.97
           command: ["/bin/sh", "-c"]
           args:
             - |
