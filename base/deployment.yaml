@@ -41,7 +41,7 @@ spec:
       
       containers:
         - name: devopszon-httpapi-host
-          image: docker.io/cahityusuf/devopszon-abp-api:v1.3.8
+          image: docker.io/cahityusuf/devopszon-httpapi-host:v1.0.90
           command: ["/bin/sh", "-c"]
           args:
             - |
@@ -63,7 +63,13 @@ spec:
             limits:
               memory: 1Gi
               cpu: 1
-          readinessProbe:
+          envFrom:
+            - configMapRef:
+                name: devopszon-httpapi-host-config
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+                    readinessProbe:
             httpGet:
               path: /health-status
               port: 8080
@@ -92,10 +98,4 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 5
             successThreshold: 1
-            failureThreshold: 3
-          envFrom:
-            - configMapRef:
-                name: devopszon-httpapi-host-config
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/config   
+            failureThreshold: 3   
