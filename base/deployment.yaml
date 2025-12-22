@@ -70,32 +70,32 @@ spec:
             - name: config-volume
               mountPath: /etc/config
           readinessProbe:
-  httpGet:
-    path: /health-status
-    port: 8080
-    scheme: HTTP
-  initialDelaySeconds: 10
-  periodSeconds: 10
-  timeoutSeconds: 5
-  successThreshold: 1
-  failureThreshold: 3
-livenessProbe:
-  httpGet:
-    path: /health-status
-    port: 8080
-    scheme: HTTP
-  initialDelaySeconds: 10
-  periodSeconds: 10
-  timeoutSeconds: 5
-  successThreshold: 1
-  failureThreshold: 3
-startupProbe:
-  httpGet:
-    path: /health-status
-    port: 8080
-    scheme: HTTP
-  initialDelaySeconds: 10
-  periodSeconds: 10
-  timeoutSeconds: 5
-  successThreshold: 1
-  failureThreshold: 3   
+            httpGet:
+              path: /health-status
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health-status
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /health-status
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3   
