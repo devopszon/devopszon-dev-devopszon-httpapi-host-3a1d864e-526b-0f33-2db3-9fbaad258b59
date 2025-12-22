@@ -41,7 +41,7 @@ spec:
       
       containers:
         - name: devopszon-httpapi-host
-          image: docker.io/cahityusuf/devopszon-httpapi-host:v1.0.94
+          image: docker.io/cahityusuf/devopszon-httpapi-host:v1.0.95
           command: ["/bin/sh", "-c"]
           args:
             - |
@@ -69,7 +69,7 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /etc/config
-          readinessProbe:
+                    readinessProbe:
             httpGet:
               path: /health-status
               port: 8080
