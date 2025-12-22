@@ -21,4 +21,4 @@ spec:
   tls:
   - hosts:
     - api.devopszon.com
-    secretName: devopszon-httpapi-host-ingress-secret
+    secretName: api-devopszon-com-tls-secret
