@@ -69,7 +69,7 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /etc/config
-                    readinessProbe:
+          readinessProbe:
             httpGet:
               path: /health-status
               port: 8080
